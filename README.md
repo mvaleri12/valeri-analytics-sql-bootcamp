@@ -22,7 +22,7 @@ Maintenance: postgres
 User name: analytics_student
 Your password for AWS is analyticsga
 
-Filepath for Dekstop:
+Filepath for Desktop:
 
 Windows: C:\Users\UserName\Desktop
 Mac: /Users/username/Desktop
