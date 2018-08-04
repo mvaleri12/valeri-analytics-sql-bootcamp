@@ -11,4 +11,13 @@ Hostname/address		valerianalytics.cxp8yytvksbk.us-west-2.rds.amazonaws.com
 Port		5432
 Maintenance_DB		postgres
 Username		valeri_student
-Password		analyticsvaleri
+Password		shawshank
+
+
+
+Analyticsga.cuwj8wuu6wbh.us-west-2.rds.amazonaws.com
+
+Port: 5432
+Maintenance: postgres
+User name: analytics_student
+Your password for AWS is analyticsga
