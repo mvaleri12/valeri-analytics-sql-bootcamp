@@ -21,3 +21,8 @@ Port: 5432
 Maintenance: postgres
 User name: analytics_student
 Your password for AWS is analyticsga
+
+Filepath for Desktop:
+
+Windows: C:\Users\UserName\Desktop
+Mac: /Users/username/Desktop
