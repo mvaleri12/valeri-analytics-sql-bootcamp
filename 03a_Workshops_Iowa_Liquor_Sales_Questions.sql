@@ -25,21 +25,25 @@
 		FROM sales
 		LIMIT 100
 	
-	-- Question 3: Show me a list of Store_#'s, their name, and status. Order them by name from 'A-Z'. *Hint - use the STORES table*
+	/*Question 3: Show me a list of Store_#'s, their name, and status.
+	Order them by name from 'A-Z'. *Hint - use the STORES table */
 
 
-	-- Question 4: Show me the bottle price of all a vendor's items, their product category, and bottle price with a 11% tax rate added on. *Hint - use the PRODUCTS table*
+	/*Question 4: Show me the bottle price of all a vendor's items
+	, their product category, and bottle price with a 11% tax rate added on. 
+	*Hint - use the PRODUCTS table*
 	
 
-	-- Question 5: Calculate the profit realized from selling 1 individual bottle for each item. *Hint - (Shelf Price - Bottle Price) = Profit*. Use PRODUCTS table.
-
-
--- Question 6: Determine the lowest level of granularity from the PRODUCTS table. Can you prove out using the DISTINCT function?
+	/*Question 5: Find the highest profit item. 
+	*Hint - (Shelf Price - Bottle Price) = Profit*. Use PRODUCTS table*/
 
 	
 -- STRETCH QUESTIONS
 
-		--Question 1: Calculate the profit realized from selling an entire case for each item. Sort by highest profit item. *Hint - (Shelf Price * Pack) = Shelf Price per Case. (Shelf Price per Case - Case Cost) = Profit
+	/*Question 1: Calculate the profit realized from selling an entire case for each item. 
+	Sort by highest profit item. 
+	*Hint - (Shelf Price * Pack) = Shelf Price per Case. 
+	(Shelf Price per Case - Case Cost) = Profit*/
 
 
 ----------------------------------------------------------------
@@ -167,25 +171,25 @@
 
 /* Hey Analyst,
 
-	Bill is asking for a data pull to find out the TOTAL sales, cost, profit and distinct items count of Seagram's branded whiskey
-	for 2014 by county. Can we exclude sales that don't have a county?
-
-	Ideally, he'd like to understand these numbers by liter size.
+	Bill is asking for a data pull to understand the following KPIs for Seagram's Branded Whiskey in 2014: 
 	
-	Could you also sort these results by county and total sales, alphabetically and highest to lowest?
+	* Total Revenue
+	* Total Profit
+	* Total Profit Margin
+	* Total Volume in Lieters sold
+	
+	He'd also like the above data grouped by county, sorted from highest revenue to lowest revenue county.
 	
 	Larry, the last analyst, left this code that pulled something similar. I'm not sure if it still works
-	but it would be a great jumping off point. Maybe you could sync up with Valeri if you can't wrap
-	your head around it. */
+	but it would be a great jumping off point. FYI, I'll be in Suncadia with my family so if you are lost
+	maybe you could sync up with Valeri if you can't wrap your head around it. That'd be great. Thanks. */
 	
 	--CODE
 	
 	SELECT
 	
 	 sum(total) as TOTAL_REVENUE
-	,distinct(count item) as DISTINCT_ITEM_COUNT 
 	,(state_btl_cost * bottle_qty) as TOTAL_COST
-	,(total - (state_btl_cost * bottle_qty))
 	,sum(liter_size) as "LITER VOLUME"
 	,cty as County
 	
@@ -195,15 +199,12 @@
 	
 	description IN (Seagrams%Whiskey)
 	
-	AND UPPER(county) != UPPER('NULL')
-	
 	date = 1/1/2014
 	
 	GROUP BY
 	
 	 sum(total) as TOTAL_REVENUE
 	,(state_btl_cost * bottle_qty) as TOTAL_COST
-	,(total - (state_btl_cost * bottle_qty)) as TOTAL_PROFIT
 	,sum(liter_size) as "LITER VOLUME"
 	,cty as County
 	
