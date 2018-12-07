@@ -1,0 +1,393 @@
+
+----------------------------------------------------------------
+--                  PG ADMIN SERVER DETAILS                   --
+----------------------------------------------------------------
+
+
+/* Use these credentials for the instructions on page 6 when connecting to PG Admin Server*/
+
+/*PRIMARY SERVER DETAILS
+Hostname/address: valerianalytics.cxp8yytvksbk.us-west-2.rds.amazonaws.com
+Port: 5432 
+Maintenance_DB: postgres 
+Username: valeri_student 
+Password: shawshank*/
+
+/*SECONDARY SERVER - If Above Fails to Work
+Hostname/address: analyticsga.cuwj8wuu6wbh.us-west-2.rds.amazonaws.com
+Port: 5432 
+Maintenance_DB: postgres 
+Username: analytics_student 
+Password: analyticsga*/
+
+
+----------------------------------------------------------------
+--     INSTRUCTOR GUIDED:   BASIC SQL SYNTAX - 15 Min.        --
+----------------------------------------------------------------
+
+				--SELECT <-- FOCUS AREA
+				--FROM  <-- FOCUS AREA
+				--WHERE
+				--GROUP BY 
+				--ORDER BY <-- FOCUS AREA
+				--LIMIT <-- FOCUS AREA
+
+-- I want to see ALL records in the ALBUMS table.
+
+-- I want to see a SAMPLE of 10 ALBUMS and ARTISTS in the ALBUMS table.
+
+-- I want to see a list of ARTISTs in the ALBUMS table.
+
+-- I want to see a DISTINCT list of ARTISTS in the ALBUMS table.
+
+-- I want to see a list of ALBUMs in the ALBUMS table, sorted from A-Z.
+
+-- I want to see a list of ALBUMS their GENRE, sorted by highest to lowest price.
+
+-- I want a list of ALBUMS and the profit realized from selling each ALBUM.
+
+-- I want to order the list of ALBUMS by lowest profit album to highest profit ALBUM.
+
+
+----------------------------------------------------------------
+--           WORKSHOP:    BASIC SQL SYNTAX - 15 Min.          --
+----------------------------------------------------------------
+
+				--SELECT <-- FOCUS AREA
+				--FROM  <-- FOCUS AREA
+				--WHERE
+				--GROUP BY 
+				--ORDER BY <-- FOCUS AREA
+				--LIMIT <-- FOCUS AREA
+
+
+--QUESTIONS				
+				
+	-- Question 1: Select 300 Rows from the SALES table
+
+
+	-- Question 2: Fix the below code
+
+		SELECT 
+		item
+		, store
+		, county
+		, sales,
+		FROM sales
+		LIMIT 100
+	
+	/*Question 3: Show me a list of Store_#'s, their name, and status.
+	Order them by name from 'A-Z'. *Hint - use the STORES table */
+
+
+	/*Question 4: Show me the bottle price of all a vendor's items
+	, the product category of those items, and bottle price with a 11% tax rate added on. 
+	*Hint - use the PRODUCTS table*
+	
+
+	/*Question 5: Find the highest profit item. 
+	*Hint - (Shelf Price - Bottle Price) = Profit*. Use PRODUCTS table*/
+
+
+----------------------------------------------------------------
+--       INSTRUCTOR GUIDED:   FILTERS  - 30 Min.              --
+----------------------------------------------------------------
+
+				--SELECT
+				--FROM 
+				--WHERE <-- FOCUS AREA
+				--GROUP BY 
+				--ORDER BY
+				--LIMIT
+				
+-- 1 Condition, 1 Column: Text Example: I want to see a list of Rock Albums.
+
+SELECT
+ALBUM
+FROM ALBUMS
+WHERE
+
+
+-- 1 Condition, 1 Column: Integer Example: I want to see a list of Albums with over 1000 plays.
+
+SELECT
+ALBUM
+FROM ALBUMS
+WHERE
+
+-- 1 Condition, 1 Column: Date Example: I want to see a list of Albums released in 2011.
+
+SELECT
+ALBUM
+FROM ALBUMS
+WHERE
+
+-- Multiple Conditions, 1 Column Example: I want to see a list of Rock and Rap ALBUMs.
+
+SELECT
+ALBUM
+FROM ALBUMS
+WHERE
+
+-- Multiple Conditions, Multiple Columns Example: I want to see a list of Rock and Rap Albums with at least a 4 rating.
+
+SELECT
+ALBUM
+FROM ALBUMS
+WHERE
+
+-- NULL Conditions: I want to see a list of Albums with no ARTIST name.
+
+SELECT
+ALBUM
+FROM ALBUMS
+WHERE
+
+-- OR Conditions: I want to see a list of Rock Albums with a rating of at least 4 or they album was burned.
+
+SELECT
+ALBUM
+FROM ALBUMS
+WHERE
+
+-- Pattern Matching: I want see a list of ALBUMS that have a "the" in their name
+
+SELECT
+ALBUM
+FROM ALBUMS
+WHERE
+
+
+----------------------------------------------------------------
+--               WORKSHOP:   FILTERS  - 30 Min.               --
+----------------------------------------------------------------
+
+				--SELECT
+				--FROM 
+				--WHERE <-- FOCUS AREA
+				--GROUP BY 
+				--ORDER BY
+				--LIMIT
+
+
+
+-- QUESTIONS
+
+	-- Question 1: Give me a list of all products that vendor 305 has.
+	
+		SELECT
+		*
+		FROM PRODUCTS 
+
+	-- Question 2: Give me a distinct list of vendors that sell Flavored Rum.
+	
+		SELECT
+		DISTINCT VENDOR
+		FROM PRODUCTS
+		WHERE
+
+	-- Question 3: Give me a distinct list of items and their respective list date, that were listed in Feburary 2015.
+	
+		SELECT
+		item_no
+		,list_date
+		FROM PRODUCTS 
+		WHERE 
+	
+
+	-- Question 4: Give me a list of Peach Brandies that are in a 1000 ml bottle size or are over 70 proof. Remember, CONTAINED OR.
+	
+		SELECT
+		*
+		FROM PRODUCTS 
+		WHERE 
+		
+	-- Question 5: Which items are Tequilas or Scotch Whiskies that have a case cost between $100 and $120?
+	
+		SELECT
+		*
+		FROM PRODUCTS 
+		WHERE 
+
+	-- Question 6: Which items don't have a product category and their list date is not 2007, 2008, or 2009?
+	
+		SELECT
+		*
+		FROM PRODUCTS 
+		WHERE 
+		
+	-- Question 7: Give me a list of drinks that have the color blue in the item description.	
+	
+		SELECT
+		*
+		FROM PRODUCTS
+		WHERE 
+
+	-- Question 8: Give me a DISTINCT list of items that are either 100 proof Flavored Vodka in a 12 pack OR Tequila with a case cost under $150 dollars.
+	
+		SELECT
+		*
+		FROM PRODUCTS 
+		WHERE 
+	
+	-- Question 9: Iowa Frat Bro says, "Give me a list of items that are mint flavored. These drinks should be over 90 proof and have a case cost under $100, brah".
+	
+		SELECT
+		*
+		FROM PRODUCTS 
+		WHERE
+
+		
+----------------------------------------------------------------
+--        INSTRUCTOR GUIDED:   AGGREGATES - 15 Min.           --
+----------------------------------------------------------------
+
+-- What is the SUM of the Total Plays in the ALBUMS table?
+
+SELECT
+
+FROM ALBUMS
+
+-- What is the COUNT of Artists in the ALBUMS Table?
+
+SELECT
+
+FROM ALBUMS
+
+-- What is the DISTINCT COUNT of Artists in the Table?
+
+SELECT
+
+FROM ALBUMS
+
+-- Write AN SQL Statement that counts the number of rocks by SIZE and STRIPE
+
+SELECT
+
+FROM ROCKS_IN_THE_BOX
+
+
+-- GROUP Practice: Write a SQL statement that counts the number artists and sums total plays by release year.
+
+
+----------------------------------------------------------------
+--         WORKSHOP:   AGGREGATES w/ GROUP BY - 10 Min.       --
+----------------------------------------------------------------	
+				
+				--SELECT
+				--FROM 
+				--WHERE
+				--GROUP BY <-- FOCUS AREA
+				--ORDER BY
+				--LIMIT
+	
+	-- Question 1: Give me Total Sales for Tequila products grouped by Year *Hint, use the Sales table. Also, TOTAL is the sales column*
+	
+	
+	-- Question 2: Give me the Total Sales for 'Jim Beam Brands' Vendor by Category Name and Month for 2015 *HINT, use TO_CHAR() for Month grouping*
+				
+				
+----------------------------------------------------------------
+-- WORKSHOP:   Putting It All Together: Fix the Code - 30 min. - 
+----------------------------------------------------------------
+
+                --SELECT <-- FOCUS AREA
+				--FROM <-- FOCUS AREA
+				--WHERE <-- FOCUS AREA
+				--GROUP BY <-- FOCUS AREA
+				--ORDER BY <-- FOCUS AREA
+				--LIMIT <-- FOCUS AREA
+
+
+
+/* Hey Analyst,
+
+	Bill is asking for a data pull to understand the following KPIs for Seagram's Branded Whiskey in 2014: 
+	
+	* Total Revenue
+	* Total Profit
+	* Total Profit Margin
+	* Total Volume in Lieters sold
+	
+	He'd also like the above data grouped by county, sorted from highest revenue to lowest revenue county.
+	
+	Larry, the last analyst, left this code that pulled something similar. I'm not sure if it still works
+	but it would be a great jumping off point. FYI, I'll be in Suncadia with my family so if you are lost
+	maybe you could sync up with Valeri if you can't wrap your head around it. That'd be great. Thanks. */
+	
+	--CODE
+	
+	SELECT
+	
+	 sum(total) as TOTAL_REVENUE
+	,(state_btl_cost * bottle_qty) as TOTAL_COST
+	,sum(liter_size) as "LITER VOLUME"
+	,cty as County
+	
+	FROM SALES
+	
+	WHERE 
+	
+	description IN (Seagrams%Whiskey)
+	
+	date = 1/1/2014
+	
+	GROUP BY
+	
+	 sum(total) as TOTAL_REVENUE
+	,(state_btl_cost * bottle_qty) as TOTAL_COST
+	,sum(liter_size) as "LITER VOLUME"
+	,cty as County
+	
+	ORDER BY COUNTY, TOTAL DESC
+	
+----------------------------------------------------------------
+--            INSTRUCTOR GUIDED: Joining Tables               --
+----------------------------------------------------------------
+	
+--Write a query that JOINs the SALES_JOIN_EXAMPLE table to the CUSTOMERS_JOIN_EXAMPLE table.	
+	
+--SALES_JOIN_EXAMPLE
+--CUSTOMERS_JOIN_EXAMPLE
+	
+	
+----------------------------------------------------------------
+--            WORKSHOP: Joining Tables                        --
+----------------------------------------------------------------
+
+/* Question 1: Give me the total sales (use total column in sales table) for the top 10 selling stores by name*/
+
+/* Question 2: Give me total sales for Tequila Products grouped by proof amount. */
+
+/* Question 3: Give me a list of the top 10 vendors with the highest number of UNSOLD coffee products. (Use item_description to find coffee products) */
+
+----------------------------------------------------------------
+--            WORKSHOP: CASE STATEMENTS                       --
+----------------------------------------------------------------
+
+
+/* Question 1: What is the trend of sales by month and bottle_price_band in 2015. Use the below criteria to define bottle_price_band with a CASE statement:
+
+	BTL_PRICE < 10.00 - CHEAP
+	BTL_PRICE 10 and 29 - MODERATE
+	BTL_PRICE 30 and 59 - HIGH
+	BTL_PRICE OVER 60 -  EXPENSIVE*/
+	
+	
+/* Question 2: Same as above, except use SUM(CASE WHEN ....) to create 4 seperate columns to calculate sales for each bottle_price_band.
+
+
+	
+----------------------------------------------------------------
+--            WORKSHOP: TEMPORARY TABLES                      --
+----------------------------------------------------------------
+
+/* Question 1: Write an indepedent query for each of the below
+
+	a. A list of counties and their population
+	
+	b. Total Sales and Total Store Count by County in 2015
+	
+	c. #1 Selling Product in Each County in 2015 *Hint, use the RANK function*
+	
+	AFTER WRITING EACH QUERY, JOIN THEM ALL TOGETHER (ABC) USING the WITH keyword...HINT, you will be joining on COUNTY.
