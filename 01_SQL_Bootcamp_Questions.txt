@@ -84,7 +84,7 @@ Password: analyticsga*/
 
 	/*Question 4: Show me the bottle price of all a vendor's items
 	, the product category of those items, and bottle price with a 11% tax rate added on. 
-	*Hint - use the PRODUCTS table*
+	*Hint - use the PRODUCTS table*/
 	
 
 	/*Question 5: Find the highest profit item. 
